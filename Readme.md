@@ -16,3 +16,13 @@ The project is about an app that makes it easy for people to see very beautiful 
 $ git clone https://github.com/david-njungo/Personal-Gallery-.git
 ```
 * Open  the project on VS Code/ your editor of choice
+## Live Demo
+open the project  
+## Known Bugs
+No known bugs yet.
+## Technologies Used
+Languages used are purely;
+* HTML
+* CSS 
+* PYTHON
+* Django framework
