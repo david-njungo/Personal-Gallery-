@@ -7,8 +7,11 @@ class Image(models.Model):
     description = models.CharField(max_length =30)
     category = models.ForeignKey('Category',on_delete=models.CASCADE)
     location = models.ForeignKey('Location',on_delete=models.CASCADE)
-    link = models.CharField(max_length = 150)   
+    link = models.CharField(max_length = 150)     
 
+    def save_editor(self):
+        self.save()
+        
     def __str__(self):
         return self.name
 
