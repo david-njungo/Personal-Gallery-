@@ -29,6 +29,7 @@ class LocationTestClass(TestCase):
         self.location.save_location()
         locations = Location.objects.all()
         self.assertTrue(len(locations) > 0)
+
 class ImageTestClass(TestCase):
     def setUp(self):
         # Creating a new category and saving it
@@ -48,3 +49,7 @@ class ImageTestClass(TestCase):
         Category.objects.all().delete()
         Image.objects.all().delete()
         Location.objects.all().delete()
+
+    def test_get_images(self):
+        images = Image.category()
+        self.assertTrue(len(images)>0)
