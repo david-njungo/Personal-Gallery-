@@ -15,3 +15,23 @@ class CategoryTestClass(TestCase):
         self.category.save_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories) > 0)
+
+class ImageTestClass(TestCase):
+    def setUp(self):
+        # Creating a new category and saving it
+        self.david= Editor(first_name = 'David', last_name ='Muriuki', email ='james@moringaschool.com')
+        self.david.save_editor()
+
+        # Creating a new location and saving it
+        self.new_location = Location(name = 'testing')
+        self.new_location.save()
+
+        self.new_image= Image(name = '',description = '',link = '',Category= self.category)
+        self.new_image.save()
+
+        self.new_image.location.add(self.new_location)
+
+    def tearDown(self):
+        Category.objects.all().delete()
+        Image.objects.all().delete()
+        Location.objects.all().delete()
