@@ -16,11 +16,24 @@ class CategoryTestClass(TestCase):
         categories = Category.objects.all()
         self.assertTrue(len(categories) > 0)
 
+class LocationTestClass(TestCase):
+
+    # Set up method
+    def setUp(self):
+        self.location = Location(name = 'Nairobi')
+        # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.location,Location))
+     # Testing Save Method
+    def test_save_method(self):
+        self.location.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations) > 0)
 class ImageTestClass(TestCase):
     def setUp(self):
         # Creating a new category and saving it
-        self.david= Editor(first_name = 'David', last_name ='Muriuki', email ='james@moringaschool.com')
-        self.david.save_editor()
+        self.category = Category(name = 'food')
+        self.category.save_category()
 
         # Creating a new location and saving it
         self.new_location = Location(name = 'testing')
