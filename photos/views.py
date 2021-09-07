@@ -2,8 +2,8 @@ from django.shortcuts import render
 from .models import Image
 # Create your views here.
 def home(request):
-    category = Image.category('food')
-    return render(request,'home.html','food'= category)
+    category = Image.category()
+    return render(request,'home.html',{'category':category})
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:

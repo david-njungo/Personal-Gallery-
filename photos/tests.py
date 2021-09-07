@@ -6,7 +6,7 @@ class CategoryTestClass(TestCase):
 
     # Set up method
     def setUp(self):
-        self.category = Category(name = 'food')
+        self.category = Category(name = '')
         # Testing  instance
     def test_instance(self):
         self.assertTrue(isinstance(self.category,Category))
@@ -40,9 +40,10 @@ class ImageTestClass(TestCase):
         self.new_location = Location(name = 'testing')
         self.new_location.save()
 
-        self.new_image= Image(name = '',description = '',link = '',Category= self.category)
+        self.new_image= Image(name = '',description = '',link = '')
         self.new_image.save()
 
+        self.new_image.category.add(self.category)
         self.new_image.location.add(self.new_location)
 
     def tearDown(self):

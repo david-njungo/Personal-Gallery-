@@ -1,15 +1,21 @@
 from django.db import models
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length =30)
+
+    def __str__(self):
+        return self.name 
+
 class Image(models.Model):
-    article_image = models.ImageField(upload_to = 'images/')
+    image = models.ImageField(upload_to = 'images/')
     name = models.CharField(max_length =30)
     description = models.CharField(max_length =30)
     category = models.ForeignKey('Category',on_delete=models.CASCADE)
     location = models.ForeignKey('Location',on_delete=models.CASCADE)
     link = models.CharField(max_length = 150)     
 
-    def save_editor(self):
+    def save_Image(self):
         self.save()
 
     def __str__(self):
@@ -19,9 +25,10 @@ class Image(models.Model):
     def search_by_category(cls,search_term):
         images = cls.objects.filter(category__icontains=search_term)
         return images
+
     @classmethod
     def category(cls):
-        category = cls.objects.filter(category = 'food')
+        category = cls.objects.all()
         return category
 
 class Location(models.Model):
@@ -29,9 +36,4 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
-
-class Category(models.Model):
-    name =models.CharField(max_length = 30)
-
-    def __str__(self):
-        return self.name   
+ 
