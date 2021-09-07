@@ -50,6 +50,6 @@ class ImageTestClass(TestCase):
         Image.objects.all().delete()
         Location.objects.all().delete()
 
-    def test_get_images(self):
+    def test_get_category(self):
         images = Image.category()
         self.assertTrue(len(images)>0)
