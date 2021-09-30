@@ -1,0 +1,24 @@
+.home{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url('https://images.unsplash.com/photo-1580687581189-b21cc752b6c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+.intro{
+    font-size: 50px;
+    font-weight: 900; 
+}
+h1{
+    font-size: 80px;
+    font-weight: 900;
+    color: rgb(250, 252, 252);
+}
+.navbar{
+    background-color: rgb(224, 155, 63);
+}
+.footer{
+    background-color: rgb(224, 155, 63);  
+}
+#images{
+    background-color: rgb(224, 155, 63);  
+}

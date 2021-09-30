@@ -1,44 +1,49 @@
 {%extends 'base.html' %}
 
 {% block content %}
-<div class="container-fluid bg-light">
-    <h1 class="text-center display-6 fw-bold"><u>Divcons Arts</u></h1>
+<div class="container-fluid m-0">
+  <div class="home">
+    <h1 class="text-center fw-bold py-2"><u>Divcons Arts</u></h1>
     <div class="row">
-        <div class="col-5 text-center text-primary">
-            <p class="display-6 pt-5">
-                <em>The sheer beauty of our world never cease
-                to amaze me especially during that soft
-                morning and evening light.So come
-                and join me in my gallery to see some
-                gorgeous images.</em>
-            </p>
-            <a href="#images"> <button type="button" class="btn btn-lg btn-dark">See Images</button></a>
-        </div>
-        <div class="col-7">
-            <img src="https://images.unsplash.com/photo-1517282079187-899edd773b0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"width="80%"  alt="">
-        </div>
+      <div class="col-1"></div>
+      <div class="col-10 intro text-center text-light">
+        <p class="pt-2 pb-3">
+          The sheer beauty of our world never cease
+          to amaze me especially during that soft
+          morning and evening light.So come
+          and join me in my gallery to see some
+          gorgeous images.
+        </p>
+        <a href="#images"> <button type="button" class="btn btn-lg fw-bold btn-light">See Images</button></a>
+      </div>
+      <div class="col-1"></div>
     </div>
-    <div id="images">
-        <h1>My Photos</h1>
-        <div class="container">
-            {% for image_item in category %} 
-            <div class="row"> 
-              <div class="col-xs-3 col-sm-6 col-md-4 col-lg-4">
-                <h2 class="text-center"> 
-                    <img src="{{image_item.image}}" width=100% alt="Image">  
-                    <h1>{{image_item.name}}</h1>
-                </h2>
-              </div>
-          
-            </div>
-          
-            {% empty %}
-            <div class="row">
-              <h2 class="text-center">There No Images</h2>
-            </div>
-            {% endfor %}
-          
+  </div>
+  <footer>
+    <div class="footer  text-center">
+      <p class="fw-bold display-6">Sharing The Moment With You</p>
+    </div>
+  </footer>
+  <div id="images" >
+    <h1 class="h1 text-center">My Photos</h1>
+    <div class="container">
+      <div class="row">
+        {% for image in images %}
+        <div class="card col-4" style="width: 18rem;">
+          <img src="{{image.image_upload.url}}" class="img-responsive"  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{image.name}}</h5> 
+            <a href="{% url 'image' %}" class="btn btn-primary">See details</a>
           </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="row">
+        <h2 class="text-center">There No Images</h2>
+      </div>
+      {% endfor %}
+
     </div>
+  </div>
 </div>
 {% endblock %}
