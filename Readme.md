@@ -17,7 +17,7 @@ $ git clone https://github.com/david-njungo/Personal-Gallery-.git
 ```
 * Open  the project on VS Code/ your editor of choice
 ## Live Demo
-open the project  
+open the project  https://mygallery2022.herokuapp.com/
 ## Known Bugs
 No known bugs yet.
 ## Technologies Used
